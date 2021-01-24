@@ -26,7 +26,7 @@
 						<input type="password" name="pass" id="pass" class="form-control" placeholder="password">
 					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox">Recordarme!
+						<input type="checkbox" id="datos">Recordarme!
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn btn-block mt-3 login_btn">

@@ -1,5 +1,10 @@
-$(document).ready(function() {
+const URL = "/proyectos-juan/login-php"
+const URL2 = "/login-php"
+const guardarDatos = $("#datos")
+
+$(document).ready(function () {
     console.log("iniciando jquery");
+    ObtenerDatosLocalStorage()
 });
 
 toastr.options = {
@@ -21,45 +26,44 @@ toastr.options = {
 }
 
 // login
-$('#form-login').submit(function(event) {
+$('#form-login').submit(function (event) {
     event.preventDefault();
     //console.log("enviando...");
     let name = $('#name').val();
     let pass = $('#pass').val();
-    
+
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: '/proyectos-juan/proyecto-uno/App/signIn',
-        data:{
+        url: `${URL}/App/signIn`,
+        data: {
             name,
             pass,
         },
-        success:(response) => {
+        success: (response) => {
             console.log(response);
-            if(response.status) {
+            if (response.status) {
                 toastr.success('Usuario Logueado Correctamente!');
                 setTimeout(() => {
                     // window.location.href = '/proyectos-juan/proyecto-uno/Login/acceso';
-                    $(location).attr('href', '/proyectos-juan/proyecto-uno/Admin/inicio')
+                    $(location).attr('href', `${URL}/Admin/inicio`)
                 }, 3000)
 
             } else if (response.errorinputs) {
                 toastr.warning(response.errorinputs);
-
             } else {
                 toastr.error(response.error);
             }
 
-            
+
         }
     })
-    
-    
+
+
 });
 
 // registrar
-$('#form-registro').submit(function(event) {
+$('#form-registro').submit(function (event) {
     event.preventDefault();
     console.log("enviando...");
 
@@ -71,21 +75,21 @@ $('#form-registro').submit(function(event) {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: '/proyectos-juan/proyecto-uno/App/signUp',
+        url: `${URL}/App/signUp`,
         data: {
             name: name,
             correo: correo,
             password: pass,
         },
-        success:(response) => {
+        success: (response) => {
             if (response.error) {
                 toastr.error(response.error);
-            }else {
+            } else {
                 console.log(response);
                 toastr.success(response.success);
                 setTimeout(() => {
                     // window.location.href = '/proyectos-juan/proyecto-uno/Login/acceso';
-                    $(location).attr('href', '/proyectos-juan/proyecto-uno/Admin/inicio');
+                    $(location).attr('href', `${URL}/Admin/inicio`);
                 }, 3000);
             }
         }
@@ -93,7 +97,7 @@ $('#form-registro').submit(function(event) {
 });
 
 // envio del recover passwords
-$('#form-recover').submit(function(event) {
+$('#form-recover').submit(function (event) {
     event.preventDefault();
     console.log("enviando...");
 
@@ -104,50 +108,93 @@ $('#form-recover').submit(function(event) {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: '/proyectos-juan/proyecto-uno/App/enviarCambioPassword',
+        url: `${URL}/App/enviarCambioPassword`,
         data: {
             email: email,
         },
-        success:(response) => {
+        success: (response) => {
             console.log(response);
             toastr.success(response.message);
             setTimeout(() => {
-                 // window.location.href = '/proyectos-juan/proyecto-uno/Login/acceso';
-                    $(location).attr('href', '/proyectos-juan/proyecto-uno/App/acceso');
+                // window.location.href = '/proyectos-juan/proyecto-uno/Login/acceso';
+                $(location).attr('href', `${URL}/App/acceso`);
             }, 3000);
         }
     })
 });
 
 // cambio de contraseña
-$('#form-password').submit(function(event) {
+$('#form-password').submit(function (event) {
     event.preventDefault();
     let id_user = $('#id_user').val();
-    let pass    = $('#pass_recover').val();
-    let pass_confirm    = $('#pass_recover_confirm').val();
+    let pass = $('#pass_recover').val();
+    let pass_confirm = $('#pass_recover_confirm').val();
 
     if (pass === pass_confirm && pass.length === pass_confirm.length) {
-
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: '/proyectos-juan/proyecto-uno/App/UpdatePass',
+            url: `${URL}/App/UpdatePass`,
             data: {
                 id_user: id_user,
                 pass: pass
             },
-            success:(response) => {
+            success: (response) => {
                 if (response.status) {
                     toastr.success(`${response.response}, password cambiada correctamente!`);
                     setTimeout(() => {
                         // window.location.href = '/proyectos-juan/proyecto-uno/Login/acceso';
-                        $(location).attr('href', '/proyectos-juan/proyecto-uno/App/acceso');
+                        $(location).attr('href', `${URL}/App/acceso`);
                     }, 3000);
                 }
             }
         })
-    } else{
+    } else {
         toastr.error('Las contraseñas son erroneas');
     }
 
 });
+
+$('#datos').change(function (event) {
+    recordarDatosLogin()
+})
+
+
+// funciones
+function recordarDatosLogin() {
+    const storage = localStorage
+    if (guardarDatos.is(':checked')){
+        const data = {
+            nombre: $("#name").val(),
+            password: $("#pass").val(),
+            check: $('#datos').val()
+        }
+        storage.setItem("datos", JSON.stringify(data))
+        toastr.success("datos guardados!")
+
+    } else if(!guardarDatos.is(':checked')) {
+        storage.removeItem("datos")
+        toastr.success("datos removidos!")
+    }
+}
+
+function ObtenerDatosLocalStorage() {
+    const storage = localStorage;
+    const nombre = $("#name")
+    const password = $("#pass")
+    const checkeds = $("#datos")
+
+    if(storage.getItem("datos") != null) {
+        let datos = JSON.parse(storage.getItem("datos"))
+        nombre.val(datos.nombre)
+        nombre.focus()
+        password.val(datos.password)
+        password.focus()
+
+        if(datos.check === 'on') {
+            checkeds.attr("checked", true)
+        } else {
+            checkeds.attr("checked", false)
+        }
+    }
+}
