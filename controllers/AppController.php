@@ -1,6 +1,8 @@
 <?php
 require_once 'model/User.php';
 
+session_start();
+
 class AppController extends SesionController
 {
 
@@ -57,7 +59,7 @@ class AppController extends SesionController
                 $response_login = $userLogin->login();
 
                 if ($response_login['status']) {
-                    session_start();
+                    
                     $_SESSION['email'] = $response_login["data"]["email"];
                     $_SESSION['usuario'] = $response_login["data"]["username"];
                     $_SESSION['rol'] = $response_login["data"]["rol_usuario"];

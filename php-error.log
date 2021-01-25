@@ -1,105 +1,68 @@
-[13-Dec-2020 20:11:33 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[13-Dec-2020 20:11:51 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
-[13-Dec-2020 20:12:00 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
-[13-Dec-2020 20:12:05 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
-[28-Dec-2020 18:41:06 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[28-Dec-2020 18:41:17 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[28-Dec-2020 18:41:22 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[28-Dec-2020 18:41:25 America/Bogota] Abriendo la vista de registro -> entrando en el controlador registro
-[28-Dec-2020 18:41:29 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[28-Dec-2020 18:41:36 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
-[28-Dec-2020 18:41:48 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
-[28-Dec-2020 18:42:13 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[28-Dec-2020 18:42:42 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[28-Dec-2020 18:43:06 America/Bogota] Abriendo la vista de registro -> entrando en el controlador registro
-[28-Dec-2020 18:43:08 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[28-Dec-2020 18:45:46 America/Bogota] Abriendo la vista de recover -> entrando en el controlador recover
-[28-Dec-2020 18:45:49 America/Bogota] ejecucion->1
-[28-Dec-2020 18:45:49 America/Bogota] recover->PASS: "UPDATE usuario SET recover = 'slA9LpstohwwcpJnJcteE0i3T1OFcVHEqQdzfXLbJDtGt5mFrf' WHERE id_usuario=6"
-[28-Dec-2020 18:45:58 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[28-Dec-2020 18:47:20 America/Bogota] ejecucion->1
-[28-Dec-2020 18:47:51 America/Bogota] ejecucion->1
-[28-Dec-2020 18:48:21 America/Bogota] update contraseña ->"UPDATE usuario SET  password = :password WHERE (id_usuario = :id)"
-[28-Dec-2020 18:48:24 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[28-Dec-2020 18:49:06 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
-[28-Dec-2020 18:55:03 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[28-Dec-2020 18:58:32 America/Bogota] Abriendo la vista de registro -> entrando en el controlador registro
-[28-Dec-2020 18:59:09 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[18-Jan-2021 20:42:18 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[18-Jan-2021 20:51:15 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[18-Jan-2021 20:51:23 America/Bogota] PHP Fatal error:  Uncaught Error: Class 'Usuario' not found in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\User.php:13
-Stack trace:
-#0 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\AppController.php(53): User->__construct()
-#1 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\Controller.php(21): AppController->signIn()
-#2 C:\xampp\htdocs\proyectos-juan\proyecto-uno\index.php(32): Controller->App()
-#3 {main}
-  thrown in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\User.php on line 13
-[18-Jan-2021 20:52:30 America/Bogota] PHP Warning:  require_once(../entyties/Usuario.php): failed to open stream: No such file or directory in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\User.php on line 5
-[18-Jan-2021 20:52:30 America/Bogota] PHP Fatal error:  require_once(): Failed opening required '../entyties/Usuario.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\User.php on line 5
-[18-Jan-2021 20:52:37 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[18-Jan-2021 20:52:56 America/Bogota] PHP Fatal error:  Uncaught Error: Call to undefined method User::setUsername() in C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\AppController.php:54
-Stack trace:
-#0 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\Controller.php(21): AppController->signIn()
-#1 C:\xampp\htdocs\proyectos-juan\proyecto-uno\index.php(32): Controller->App()
-#2 {main}
-  thrown in C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\AppController.php on line 54
-[18-Jan-2021 20:54:25 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
-[18-Jan-2021 20:54:32 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
-[18-Jan-2021 21:46:24 America/Bogota] PHP Warning:  require_once(../config/DataBase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php on line 4
-[18-Jan-2021 21:46:24 America/Bogota] PHP Fatal error:  require_once(): Failed opening required '../config/DataBase.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php on line 4
-[18-Jan-2021 21:47:22 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function UserGestor::getUsuarios(), 0 passed in C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php on line 15 and exactly 2 expected in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php:31
-Stack trace:
-#0 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php(15): UserGestor->getUsuarios()
-#1 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\Controller.php(21): GestorController->getUsuarios()
-#2 C:\xampp\htdocs\proyectos-juan\proyecto-uno\index.php(32): Controller->App()
-#3 {main}
-  thrown in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php on line 31
-[18-Jan-2021 21:48:05 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function UserGestor::getUsuarios(), 0 passed in C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php on line 15 and exactly 2 expected in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php:31
-Stack trace:
-#0 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php(15): UserGestor->getUsuarios()
-#1 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\Controller.php(21): GestorController->getUsuarios()
-#2 C:\xampp\htdocs\proyectos-juan\proyecto-uno\index.php(32): Controller->App()
-#3 {main}
-  thrown in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php on line 31
-[18-Jan-2021 21:48:22 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function UserGestor::getUsuarios(), 0 passed in C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php on line 15 and exactly 2 expected in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php:31
-Stack trace:
-#0 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php(15): UserGestor->getUsuarios()
-#1 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\Controller.php(21): GestorController->getUsuarios()
-#2 C:\xampp\htdocs\proyectos-juan\proyecto-uno\index.php(32): Controller->App()
-#3 {main}
-  thrown in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php on line 31
-[18-Jan-2021 21:48:27 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function UserGestor::getUsuarios(), 0 passed in C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php on line 15 and exactly 2 expected in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php:31
-Stack trace:
-#0 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php(15): UserGestor->getUsuarios()
-#1 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\Controller.php(21): GestorController->getUsuarios()
-#2 C:\xampp\htdocs\proyectos-juan\proyecto-uno\index.php(32): Controller->App()
-#3 {main}
-  thrown in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php on line 31
-[18-Jan-2021 21:48:29 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function UserGestor::getUsuarios(), 0 passed in C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php on line 15 and exactly 2 expected in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php:31
-Stack trace:
-#0 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php(15): UserGestor->getUsuarios()
-#1 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\Controller.php(21): GestorController->getUsuarios()
-#2 C:\xampp\htdocs\proyectos-juan\proyecto-uno\index.php(32): Controller->App()
-#3 {main}
-  thrown in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php on line 31
-[18-Jan-2021 21:48:51 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function UserGestor::getUsuarios(), 0 passed in C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php on line 15 and exactly 2 expected in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php:31
-Stack trace:
-#0 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php(15): UserGestor->getUsuarios()
-#1 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\Controller.php(21): GestorController->getUsuarios()
-#2 C:\xampp\htdocs\proyectos-juan\proyecto-uno\index.php(32): Controller->App()
-#3 {main}
-  thrown in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php on line 31
-[18-Jan-2021 21:48:53 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function UserGestor::getUsuarios(), 0 passed in C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php on line 15 and exactly 2 expected in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php:31
-Stack trace:
-#0 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php(15): UserGestor->getUsuarios()
-#1 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\Controller.php(21): GestorController->getUsuarios()
-#2 C:\xampp\htdocs\proyectos-juan\proyecto-uno\index.php(32): Controller->App()
-#3 {main}
-  thrown in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php on line 31
-[18-Jan-2021 21:48:55 America/Bogota] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function UserGestor::getUsuarios(), 0 passed in C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php on line 15 and exactly 2 expected in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php:31
-Stack trace:
-#0 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\GestorController.php(15): UserGestor->getUsuarios()
-#1 C:\xampp\htdocs\proyectos-juan\proyecto-uno\controllers\Controller.php(21): GestorController->getUsuarios()
-#2 C:\xampp\htdocs\proyectos-juan\proyecto-uno\index.php(32): Controller->App()
-#3 {main}
-  thrown in C:\xampp\htdocs\proyectos-juan\proyecto-uno\model\UserGestor.php on line 31
+[24-Jan-2021 11:53:36 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 11:53:42 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 13:24:07 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 13:24:21 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 15:11:19 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 15:11:33 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 15:13:22 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 15:13:39 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 15:13:49 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 15:13:56 America/Bogota] Abriendo la vista de recover -> entrando en el controlador recover
+[24-Jan-2021 15:14:03 America/Bogota] ejecucion->1
+[24-Jan-2021 15:14:03 America/Bogota] PHP Notice:  Undefined index: data in C:\xampp\htdocs\proyectos-juan\login-php\model\User.php on line 232
+[24-Jan-2021 15:14:03 America/Bogota] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\proyectos-juan\login-php\model\User.php on line 232
+[24-Jan-2021 15:14:03 America/Bogota] recover->PASS: "UPDATE usuario SET recover = 'lMdSDw95u4NXOg4qHPeyd1JqlrblIJWrhg3GRHxssQ5KKknBBH' WHERE id_usuario="
+[24-Jan-2021 15:14:16 America/Bogota] ejecucion->1
+[24-Jan-2021 15:14:16 America/Bogota] PHP Notice:  Undefined index: data in C:\xampp\htdocs\proyectos-juan\login-php\model\User.php on line 232
+[24-Jan-2021 15:14:16 America/Bogota] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\proyectos-juan\login-php\model\User.php on line 232
+[24-Jan-2021 15:14:16 America/Bogota] recover->PASS: "UPDATE usuario SET recover = 'rsE7fVp3VSXkzD7AP0g0GdtAuxdcaA7gCLzpAm8Fd18U09wSml' WHERE id_usuario="
+[24-Jan-2021 15:14:23 America/Bogota] ejecucion->1
+[24-Jan-2021 15:14:23 America/Bogota] PHP Notice:  Undefined index: data in C:\xampp\htdocs\proyectos-juan\login-php\model\User.php on line 232
+[24-Jan-2021 15:14:23 America/Bogota] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\proyectos-juan\login-php\model\User.php on line 232
+[24-Jan-2021 15:14:23 America/Bogota] recover->PASS: "UPDATE usuario SET recover = 'sOcTGQXVIHQkRjWqRzWjcB6sHHlnG21pvur09wQbRouCUd84sf' WHERE id_usuario="
+[24-Jan-2021 15:14:27 America/Bogota] ejecucion->1
+[24-Jan-2021 15:14:27 America/Bogota] PHP Notice:  Undefined index: data in C:\xampp\htdocs\proyectos-juan\login-php\model\User.php on line 232
+[24-Jan-2021 15:14:27 America/Bogota] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\proyectos-juan\login-php\model\User.php on line 232
+[24-Jan-2021 15:14:27 America/Bogota] recover->PASS: "UPDATE usuario SET recover = 'jJifEHLaNg0wELxXSHgl2W7c5fbzixMwimWalmzmIsGD9ttWJD' WHERE id_usuario="
+[24-Jan-2021 15:14:31 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 15:14:33 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 15:15:00 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 15:17:36 America/Bogota] Abriendo la vista de registro -> entrando en el controlador registro
+[24-Jan-2021 15:18:14 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 15:18:21 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 16:15:42 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 16:15:51 America/Bogota] Abriendo la vista de recover -> entrando en el controlador recover
+[24-Jan-2021 16:15:54 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 16:15:56 America/Bogota] Abriendo la vista de registro -> entrando en el controlador registro
+[24-Jan-2021 16:16:27 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 16:16:31 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 16:16:39 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 16:16:41 America/Bogota] Abriendo la vista de recover -> entrando en el controlador recover
+[24-Jan-2021 16:16:44 America/Bogota] ejecucion->1
+[24-Jan-2021 16:16:44 America/Bogota] recover->PASS: "UPDATE usuario SET recover = 'WVHPo5QezjH6XbEAbnnTNNyVo172cDnkUkoui3CIevgSIozHat' WHERE id_usuario=12"
+[24-Jan-2021 16:16:58 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 16:17:47 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 16:18:14 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 16:18:15 America/Bogota] Abriendo la vista de recover -> entrando en el controlador recover
+[24-Jan-2021 16:18:26 America/Bogota] ejecucion->1
+[24-Jan-2021 16:18:26 America/Bogota] recover->PASS: "UPDATE usuario SET recover = 'tJ1bQh4kgRz5TPVf2a7d9fgrTyWbwSIPxWei6Sxslqn484yX8z' WHERE id_usuario=12"
+[24-Jan-2021 16:18:33 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 16:21:30 America/Bogota] ejecucion->1
+[24-Jan-2021 16:21:44 America/Bogota] update contraseña ->"UPDATE usuario SET  password = :password WHERE (id_usuario = :id)"
+[24-Jan-2021 16:21:47 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 16:21:55 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 16:22:01 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 17:58:56 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 17:58:59 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 18:16:03 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 18:16:06 America/Bogota] Abriendo la vista de registro -> entrando en el controlador registro
+[24-Jan-2021 18:16:41 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 18:16:42 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 18:23:42 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 18:23:44 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 18:45:13 America/Bogota] PHP Notice:  Undefined property: UserGestor::$getRol in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 59
+[24-Jan-2021 18:45:23 America/Bogota] PHP Notice:  Undefined property: UserGestor::$getRol in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 59
+[24-Jan-2021 18:45:45 America/Bogota] PHP Notice:  Undefined property: UserGestor::$getRol in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 59
+[24-Jan-2021 19:27:08 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 19:28:02 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[24-Jan-2021 19:28:11 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "

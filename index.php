@@ -10,7 +10,7 @@ ini_set('display_errors', TRUE); // Error/Exception display, use FALSE only in p
 
 ini_set('log_errors', TRUE); // Error/Exception file logging engine.
 
-ini_set("error_log", "/xampp/htdocs/proyectos-juan/proyecto-uno/php-error.log");
+ini_set("error_log", "/xampp/htdocs/proyectos-juan/login-php/php-error.log");
 
 
 require_once __DIR__.'/autoload.php';

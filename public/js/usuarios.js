@@ -31,6 +31,7 @@ function mostrarUsuarioForm() {
 function listarUsuarios(id, estado) {
     if (!$.fn.DataTable.isDataTable("#ud_user")) {
         dtable = $("#ud_user").DataTable({
+            responsive: true,
             ajax: {
                 url: `${URL}/Gestor/getUsers`,
                 type: "POST",
@@ -50,20 +51,32 @@ function listarUsuarios(id, estado) {
             ],
             columnDefs: [
                 {
+                    targets: 4,
+                    data: 'estado',
+                    render: function (data, type, row) {
+
+                        if(row["estado"] == 0) {
+                            return (
+                                `<span class="usuario-er" onclick="estado(${row['id_usuario']}, ${data})">
+                                    <i class="fas fa-times-circle" ></i>
+                                </span>`
+                            );
+                        } else {
+                            return (
+                                `<span class="usuario-ev" onclick="estado(${row['id_usuario']}, ${data})">
+                                    <i class="fas fa-check-circle" ></i>
+                                </span>`
+                            );
+                        }
+                    }
+                },
+
+                {
                     targets: 5,
                     data: '',
                     render: function (data, type, row) {
-
-                        console.log("data: "+data);
-                        console.log("type: "+type);
-                        console.log("row: "+row);
                         return (
-                            `<button type="button" class="btn btn-info" onclick="editar(${data})">
-                                <span class="">
-                                    Ver
-                                </span>
-                            </button>
-                            <button type="button" class="btn    btn-danger" onclick="${data}">
+                            `<button type="button" class="btn btn-info" onclick="ver(${data})">
                                 <span class="">
                                     Editar
                                 </span>
@@ -118,7 +131,18 @@ function listarUsuarios(id, estado) {
     // });
 }
 
-function editar(id) {
+function roles() {
+    $.get(`${URL}/Gestor/getRol`, function (data) {
+        result = JSON.parse(data);
+        $.each(result, function (i, value) {
+            $("#rolnuevo").append(
+                '<option value="' + value.id_rol + '">' + value.rol_usuario + "</option>"
+            );
+        });
+    });
+}
+
+function ver(id) {
     $("#modal-editar").modal("show")
     $.ajax({
         type: 'POST',
@@ -131,6 +155,21 @@ function editar(id) {
             const username = $("#name").val(response.username)
             const email = $("#email").val(response.email)
             const rol = $("#rol").val(response.rol_usuario)
+
+            console.log();
+            if(response.rol_usuario != undefined) {
+                roles()
+            }
         }
     })
+}
+
+function actualizar() {
+
+}
+
+function estado(id, estado) {
+    console.log("id usuario: " + id);
+    console.log("mostrando estado actual: " + estado);
+
 }

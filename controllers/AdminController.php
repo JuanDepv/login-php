@@ -32,12 +32,12 @@ class AdminController extends SesionController {
         
     }
 
-    public function editar()
+    public function perfil()
     {
         if(SesionController::isUser()){
-            $this->view->render('usuarios/editar');
+            $this->view->render('usuarios/perfil');
         }else{
-            SesionController::redirect('/App/acceso');
+            SesionController::redirect('/App/acceso'); 
         }
         
     }

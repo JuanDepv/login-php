@@ -39,8 +39,11 @@
             <script src="<?php echo BASE_URL ?>/assets/admin/plugins/chart.js/Chart.min.js"></script>
 
             <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+            <script src="//cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
             <script src="<?php echo BASE_URL ?>/public/js/usuarios.js"></script>
+
+            
             <!-- PAGE SCRIPTS -->
             <!-- <script src="<?php echo BASE_URL ?>/assets/admin/dist/js/pages/dashboard2.js"></script> -->
     </div>

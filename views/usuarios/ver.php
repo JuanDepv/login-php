@@ -85,15 +85,15 @@
                 </div>
             </div> -->
                 <div class="card-body">
-                    <table id="ud_user" class="table">
+                    <table id="ud_user" class="table display responsive nowrap" style="width:100%" >
                         <thead>
                             <tr class="bg-dark text-white text-center">
-                                <th>N*</th>
+                                <th>n*</th>
                                 <th>nombre</th>
                                 <th>email</th>
                                 <th>rol</th>
                                 <th>estado</th>
-                                <th>Acciones</th>
+                                <th>edicion</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
@@ -142,6 +142,17 @@
                         </div>
                         <input type="text" disabled="true" name="rol" id="rol" class="form-control" placeholder="rol">
                     </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <select name="rolnuevo" id="rolnuevo" class="form-control">
+                            <option value="">Selecione nuevo rol</option>
+                        </select>
+                    </div>
+
+                    
                 </form>
             </div>
             <div class="modal-footer justify-content-between">

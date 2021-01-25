@@ -53,5 +53,11 @@ class GestorController extends SesionController {
         
     }
 
+    public function getRol() 
+    {
+        $usuarios = new UserGestor();
+        $user = $usuarios->getRol();
+        echo json_encode($user);
+    }
 
 }

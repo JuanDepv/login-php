@@ -3,7 +3,7 @@
     RewriteEngine on
     # ErrorDocument 404 http://localhost/master-php/proyecto-php-poo/error/formerror
 
-    Options -Indexes
+    # Options -Indexes
 
     RewriteCond %{SCRIPT_FILENAME} !-d
     RewriteCond %{SCRIPT_FILENAME} !-f

@@ -100,8 +100,33 @@ class UserGestor extends Model
         }
     }
 
-    public function updateUser($id) 
+    public function updateUser() 
     {
 
+    }
+
+    public function getRol() 
+    {
+        try {
+            $sql = "SELECT
+                    r.id_rol,
+                    r.nombre as 'rol_usuario' 
+                    FROM rol r";
+
+            // echo $sql;exit;
+            $stmt = $this->con->getConnection()->prepare($sql);
+
+            if ($stmt->execute()) {
+                if ($stmt->rowCount() > 0) {
+                    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                } else {
+                    return array();
+                }
+            }
+        } catch (PDOException $th) {
+            return array(
+                'error' => $th->getMessage()
+            );
+        }
     }
 }
