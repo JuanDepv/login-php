@@ -60,4 +60,25 @@ class GestorController extends SesionController {
         echo json_encode($user);
     }
 
+    public function updataState() 
+    {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if(isset($_POST['id']) && isset($_POST['estado'])) {
+                $id = $_POST['id'];
+                $estado = $_POST['estado'];
+                $user = new UserGestor();
+                $data = $user->updataState($id, $estado);
+                echo json_encode($data);
+            } else {
+                return array(
+                    'error' => "en los datos de envio"
+                );
+            }
+        } else {
+            return array(
+                'error' => "error en el metodo de envio"
+            );
+        }
+    }
+
 }

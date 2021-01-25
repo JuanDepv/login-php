@@ -129,4 +129,42 @@ class UserGestor extends Model
             );
         }
     }
+
+    public function updataState($id, $estado)
+    {
+        try {
+            $sql = "";
+            if($estado == 0) {
+                $sql .= "UPDATE usuario
+                        SET estado = 1
+                        WHERE id_usuario = :id";           
+            }
+            
+            if($estado == 1) {
+                $sql .= "UPDATE usuario
+                        SET estado = 0
+                        WHERE id_usuario = :id";
+            }
+
+            // echo $sql;exit;
+            $stmt = $this->con->getConnection()->prepare($sql);
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+            if ($stmt->execute()) {
+                if ($stmt->rowCount() > 0) {
+                    return array(
+                        'success' => true
+                    );
+                } else {
+                    return array(
+                        'error' => 'error'
+                    );
+                }
+            }
+        } catch (PDOException $th) {
+            return array(
+                'error' => $th->getMessage()
+            );
+        }
+    }
 }

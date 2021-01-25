@@ -15,6 +15,11 @@ $("#mostrarUsuarios").on("click", function (event) {
     console.log("consultando..." + user_id + " " + estado);
 });
 
+$("#actualizarusuario").on("submit", function (event) {
+    event.preventDefault();
+    console.log("actualizar");
+});
+
 
 // funciones
 function mostrarUsuarioForm() {
@@ -57,14 +62,14 @@ function listarUsuarios(id, estado) {
 
                         if(row["estado"] == 0) {
                             return (
-                                `<span class="usuario-er" onclick="estado(${row['id_usuario']}, ${data})">
+                                `<span id="ii" class="usuario-er" onclick="estado(${row['id_usuario']}, ${data})">
                                     <i class="fas fa-times-circle" ></i>
                                 </span>`
                             );
                         } else {
                             return (
-                                `<span class="usuario-ev" onclick="estado(${row['id_usuario']}, ${data})">
-                                    <i class="fas fa-check-circle" ></i>
+                                `<span id="ia" class="usuario-ev" onclick="estado(${row['id_usuario']}, ${data})">
+                                    <i class="fas fa-check-circle"></i>
                                 </span>`
                             );
                         }
@@ -91,44 +96,44 @@ function listarUsuarios(id, estado) {
         listarUsuarios(id, estado);
     }
 
-    // $.ajax({
-    //     url: '/proyectos-juan/proyecto-uno/Gestor/getUsuarios',
-    //     data: {
-    //         username: username,
-    //         estado: estado
-    //     },
-    //     type: 'POST',
-    //     // contentType: "application/json",
-    //     dataType: 'json',
-    //     success: function(response) {
-    //         $('#ud_user').DataTable({})
+    /* $.ajax({
+        url: '/proyectos-juan/proyecto-uno/Gestor/getUsuarios',
+        data: {
+            username: username,
+            estado: estado
+        },
+        type: 'POST',
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(response) {
+            $('#ud_user').DataTable({})
 
-    //         // $(response).each(function(i, usuario){
+            $(response).each(function(i, usuario){
 
-    //         //     $('#ud_user').DataTable().row.add([
-    //         //         i,
-    //         //         usuario.username,
-    //         //         usuario.email,
-    //         //         usuario.rol_usuario,
-    //         //         usuario.estado === "1" ? `<span class="euser"><i class="far fa-check-circle"></i><span>`: `<span class="eusero"><i class="far fa-times-circle"></i><span>`,
-    //         //         `<div class="td-space">
-    //         //             <button type="button" class="btn btn-info"                   data-toggle="modal"
-    //         //             data-target="#" data-iduser="${usuario.id_usuario}">
-    //         //                 <span class="glyphicon glyphicon-eye-open">
-    //         //                     Ver
-    //         //                 </span>
-    //         //             </button>
-    //         //             <button type="button" class="btn btn-warning" data-toggle="modal"
-    //         //             data-target="#" data-id_user="${usuario.id_usuario}">
-    //         //                 <span class="glyphicon glyphicon-edit">
-    //         //                     Editar
-    //         //                 </span>
-    //         //             </button>
-    //         //         </div>`
-    //         //     ]).draw();
-    //         // });
-    //     }
-    // });
+                $('#ud_user').DataTable().row.add([
+                    i,
+                    usuario.username,
+                    usuario.email,
+                    usuario.rol_usuario,
+                    usuario.estado === "1" ? `<span class="euser"><i class="far fa-check-circle"></i><span>`: `<span class="eusero"><i class="far fa-times-circle"></i><span>`,
+                    `<div class="td-space">
+                        <button type="button" class="btn btn-info"                   data-toggle="modal"
+                        data-target="#" data-iduser="${usuario.id_usuario}">
+                            <span class="glyphicon glyphicon-eye-open">
+                                Ver
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-warning" data-toggle="modal"
+                        data-target="#" data-id_user="${usuario.id_usuario}">
+                            <span class="glyphicon glyphicon-edit">
+                                Editar
+                            </span>
+                        </button>
+                    </div>`
+                ]).draw();
+            });
+        }
+    }); */
 }
 
 function roles() {
@@ -169,7 +174,19 @@ function actualizar() {
 }
 
 function estado(id, estado) {
-    console.log("id usuario: " + id);
-    console.log("mostrando estado actual: " + estado);
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: `${URL}/Gestor/updataState`,
+        data: {
+            id: id,
+            estado: estado
+        },
+        success: function(response) {
+            if(response.success) {
+                console.log("cambio realizado");
+            }
+        }
+    })
 
 }

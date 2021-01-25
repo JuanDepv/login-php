@@ -112,8 +112,8 @@
 </div>
 
 
-<div class="modal fade" id="modal-editar">
-    <div class="modal-dialog">
+<div class="modal fade bd-example-modal-lg" id="modal-editar">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content bg-dark">
             <div class="modal-header">
                 <h4 class="modal-title">Editar / Modificar</h4>
@@ -121,44 +121,49 @@
                     <span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form action="" method="post">
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <form id="actualizarusuario">
+                    <div class="row">
+                        <div class="input-group form-group col-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="usuario">
                         </div>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="usuario">
+
+                        <div class="input-group form-group col-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="text" name="email" id="email" class="form-control" placeholder="email">
+                        </div>
                     </div>
 
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    <div class="row">
+                        <div class="input-group form-group col-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="text" disabled="true" name="rol" id="rol" class="form-control" placeholder="rol">
                         </div>
-                        <input type="text" name="email" id="email" class="form-control" placeholder="email">
-                    </div>
 
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        <div class="input-group form-group col-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <select name="rolnuevo" id="rolnuevo" class="form-control">
+                                <option value="">Selecione nuevo rol</option>
+                            </select>
                         </div>
-                        <input type="text" disabled="true" name="rol" id="rol" class="form-control" placeholder="rol">
                     </div>
-
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <select name="rolnuevo" id="rolnuevo" class="form-control">
-                            <option value="">Selecione nuevo rol</option>
-                        </select>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-outline-light">
+                            Actualizar
+                        </button>
                     </div>
-
-                    
                 </form>
             </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-outline-light">Guardar Cambios</button>
-            </div>
+            
         </div>
         <!-- /.modal-content -->
     </div>
