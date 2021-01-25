@@ -161,10 +161,10 @@ function ver(id) {
             const email = $("#email").val(response.email)
             const rol = $("#rol").val(response.rol_usuario)
 
-            console.log();
+            /*console.log();
             if(response.rol_usuario != undefined) {
                 roles()
-            }
+            }*/
         }
     })
 }
