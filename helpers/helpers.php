@@ -2,7 +2,7 @@
 
 
 function paginaActual() {
-    $archivo = basename($_SERVER['REQUEST_URI']);
+    $archivo = basename($_SERVER['REDIRECT_URL']);
     $pagina = str_replace("/", "", $archivo);
     return $pagina;
 }

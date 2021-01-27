@@ -34,3 +34,14 @@
     color: greenyellow;
     cursor: pointer;
 }
+
+.image-user {
+    opacity: 0;
+}
+
+.user-form {
+    top: 326px;
+    padding-left: 145px;
+    position: absolute;
+    cursor: pointer;
+}

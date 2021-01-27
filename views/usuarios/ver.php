@@ -123,40 +123,52 @@
             <div class="modal-body">
                 <form id="actualizarusuario">
                     <div class="row">
-                        <div class="input-group form-group col-6">
+                        <div class="input-group form-group col-md-6">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             <input type="text" name="name" id="name" class="form-control" placeholder="usuario">
                         </div>
 
-                        <div class="input-group form-group col-6">
+                        <div class="input-group form-group col-md-6">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
                             <input type="text" name="email" id="email" class="form-control" placeholder="email">
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-group form-group col-6">
+                        <div class="input-group form-group col-md-6">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                <span class="input-group-text"><i class="fas fa-users"></i></span>
                             </div>
                             <input type="text" disabled="true" name="rol" id="rol" class="form-control" placeholder="rol">
                         </div>
 
-                        <div class="input-group form-group col-6">
+                        <div class="input-group form-group col-md-6">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                <span class="input-group-text"><i class="fas fa-user-plus"></i></span>
                             </div>
                             <select name="rolnuevo" id="rolnuevo" class="form-control">
-                                <option value="">Selecione nuevo rol</option>
+                                <option value="">Selecione el nuevo rol</option>
                             </select>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="input-group form-group col-md-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="text" disabled="true" name="estado" id="estadou" class="form-control" placeholder="estado">
+                        </div>
+                    </div>
+
                     <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">
+                            Cerrar
+                        </button>
                         <button type="submit" class="btn btn-outline-light">
                             Actualizar
                         </button>

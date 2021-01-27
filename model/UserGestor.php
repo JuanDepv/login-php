@@ -167,4 +167,6 @@ class UserGestor extends Model
             );
         }
     }
+
+    public function uploadNameImage($image) {}
 }

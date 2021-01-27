@@ -19,13 +19,61 @@
         <div class="card">
             <div class="card-body">
                 <div class="usuario-perfil">
-                    <div class="img-circle">
-                        <a href=""><img src="http://trovacamporella.com/img/trovacamporella-fiat500.png" />
-                    </div></a>
-                    <div class="usuario-nombres">
-                        <span>Nombre: </span>
-                        <span>Correo: </span>
+                    <div>
+                        <?php if (isset($_SESSION['i-user'])) : ?>
+                            <img src="" class="img-circle" />
+                        <?php else : ?>
+                            <img src="<?php echo BASE_URL ?>/assets/uploads/29292.jpg" class="img-circle" />
+                        <?php endif; ?>
                     </div>
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="modal-footer">
+                <form id="subirimagen" enctype="multipart/form-data">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-camera-retro"></i></span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" name="image-rol" class="custom-file-input" id="image-rol">
+                            <label class="custom-file-label" for="inputGroupFile01">Imagen</label>
+                        </div>
+                        <input class="btn btn-dark" type="submit" value="." />
+                    </div>
+                </form>
+            </div>
+            <!-- card-footer -->
+        </div>
+        <!-- /.card -->
+    </div>
+
+    <div class="col-8">
+        <!-- Default box -->
+        <div class="card">
+
+            <div class="card-body">
+                
+            <div class="usuario-nombres">
+                <div>
+                    <h3>Datos</h3>
+                    <form id="form-login">
+                        <div class="row">
+                            <div class="input-group form-group col-6">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" name="usuario" id="usuario" class="form-control" placeholder="usuario" value="<?php echo isset($_SESSION['usuario']) ?  $_SESSION['usuario'] : ''; ?>" disabled="true" />
+
+                            </div>
+                            <div class="input-group form-group col-6">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-atom"></i></span>
+                                </div>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="email" value="<?php echo isset($_SESSION['usuario']) ?  $_SESSION['email'] : ''; ?>" disabled="true" />
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
             <!-- /.card-body
@@ -37,27 +85,25 @@
         <!-- /.card -->
     </div>
 
-    <div class="col-8">
+    <div class="col-12">
         <!-- Default box -->
         <div class="card">
 
             <div class="card-body">
+                
+            <div class="usuario-nombres">
                 <div>
-                    <h3>Datos</h3>
+                    <h3>Cambiar Contraseña</h3>
                     <form id="form-login">
                         <div class="row">
-                            <div class="input-group form-group col-6">
+                            <div class="input-group form-group col-md-12">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="rol" disabled="true" />
-
+                                <input type="text" name="" id="" class="form-control" placeholder="Nueva contraseña" />
                             </div>
-                            <div class="input-group form-group col-6">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-atom"></i></span>
-                                </div>
-                                <input type="password" name="pass" id="pass" class="form-control" placeholder="estado" disabled="true" />
+                            <div class="form-group col-md-12 text-center">
+                                <input type="submit" class="btn btn-dark" name="usuario" id="usuario" value="Actualizar"/>
                             </div>
                         </div>
                     </form>

@@ -2,8 +2,9 @@ const URL = "/proyectos-juan/login-php"
 const URL2 = "/login-php"
 
 $(document).ready(function () {
-    mostrarUsuarioForm();
-});
+    mostrarUsuarioForm()
+    roles()
+})    
 
 // eventos
 $("#mostrarUsuarios").on("click", function (event) {
@@ -13,21 +14,44 @@ $("#mostrarUsuarios").on("click", function (event) {
     $(".usuario").show();
     listarUsuarios(user_id, estado);
     console.log("consultando..." + user_id + " " + estado);
-});
+})
 
-$("#actualizarusuario").on("submit", function (event) {
-    event.preventDefault();
-    console.log("actualizar");
-});
+// $("#actualizarusuario").on("submit", function (event) {
+    
+// })
+
+$("#subirimagen").on("submit", function (event) {
+    event.preventDefault()
+    const image = $("#image-rol").get(0).files[0]
+    const data = new FormData()
+    data.append("profile", image)
+    console.log(image);
+
+    $.ajax({
+        url:`${URL}/Gestor/uploadImageProfile`,
+        type: 'POST',
+        data: data,
+        processData: false,
+        contentType: false,
+        cache: false,
+        beforeSend: function () {
+            console.log("esperando");
+        },
+        success: function (response) {
+            console.log(response);
+        }
+
+    })
+})
 
 
 // funciones
 function mostrarUsuarioForm() {
-    $.get(`${URL}/Gestor/getName`, function (data) {
-        result = JSON.parse(data);
-        $.each(result, function (i, value) {
+    $.get(`${URL}/Gestor/getName`, function (response) {
+        let data = JSON.parse(response);
+        $.each(data, function (index, result) {
             $("#usuarioselect").append(
-                '<option value="' + value.id_usuario + '">' + value.username + "</option>"
+                '<option value="' + result.id_usuario + '">' + result.username + "</option>"
             );
         });
     });
@@ -83,7 +107,7 @@ function listarUsuarios(id, estado) {
                         return (
                             `<button type="button" class="btn btn-info" onclick="ver(${data})">
                                 <span class="">
-                                    Editar
+                                <i class="fas fa-edit"></i>
                                 </span>
                             </button>`
                         );
@@ -137,11 +161,11 @@ function listarUsuarios(id, estado) {
 }
 
 function roles() {
-    $.get(`${URL}/Gestor/getRol`, function (data) {
-        result = JSON.parse(data);
-        $.each(result, function (i, value) {
+    $.get(`${URL}/Gestor/getRol`, function (response) {
+        let data = JSON.parse(response);
+        $.each(data, function (index, result) {
             $("#rolnuevo").append(
-                '<option value="' + value.id_rol + '">' + value.rol_usuario + "</option>"
+                '<option value="' + result.id_rol + '">' + result.rol_usuario + "</option>"
             );
         });
     });
@@ -160,33 +184,32 @@ function ver(id) {
             const username = $("#name").val(response.username)
             const email = $("#email").val(response.email)
             const rol = $("#rol").val(response.rol_usuario)
+            const estado =  $("#estado")
 
-            console.log();
-            if(response.rol_usuario != undefined) {
-                roles()
-            }
         }
     })
 }
 
 function actualizar() {
-
+    
 }
 
 function estado(id, estado) {
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: `${URL}/Gestor/updataState`,
-        data: {
-            id: id,
-            estado: estado
-        },
-        success: function(response) {
-            if(response.success) {
-                console.log("cambio realizado");
+    if(confirm("Desea cambiar el estado")) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: `${URL}/Gestor/updataState`,
+            data: {
+                id: id,
+                estado: estado
+            },
+            success: function(response) {
+                if(response.success) {
+                    listarUsuarios()
+                }
             }
-        }
-    })
+        })
+    }
 
 }

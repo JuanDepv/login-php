@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>AdminLTE 3/<?php echo paginaActual(); ?></title>
+    <title>Login / <?php echo paginaActual(); ?></title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL ?>/assets/admin/plugins/fontawesome-free/css/all.min.css">

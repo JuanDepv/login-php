@@ -66,3 +66,32 @@
 [24-Jan-2021 19:27:08 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
 [24-Jan-2021 19:28:02 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
 [24-Jan-2021 19:28:11 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[24-Jan-2021 21:49:24 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[25-Jan-2021 19:04:49 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[25-Jan-2021 19:04:53 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[25-Jan-2021 21:47:23 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[25-Jan-2021 21:47:28 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[25-Jan-2021 21:47:49 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[25-Jan-2021 21:48:50 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[25-Jan-2021 21:49:01 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[25-Jan-2021 21:49:36 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[26-Jan-2021 20:10:36 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
+[26-Jan-2021 20:10:45 America/Bogota] ejecucion->"SELECT u.*, r.nombre as 'rol_usuario' FROM usuario u\r\n             INNER JOIN rol r ON r.id_rol = u.rol_id\r\n             WHERE u.username = ? "
+[26-Jan-2021 21:02:31 America/Bogota] PHP Notice:  Undefined index: image in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 83
+[26-Jan-2021 21:03:19 America/Bogota] PHP Notice:  Undefined index: image in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 83
+[26-Jan-2021 21:04:58 America/Bogota] PHP Notice:  Array to string conversion in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:14:07 America/Bogota] PHP Notice:  Array to string conversion in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:30:29 America/Bogota] PHP Notice:  Undefined index: image in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:30:29 America/Bogota] PHP Notice:  Array to string conversion in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:31:10 America/Bogota] PHP Notice:  Undefined index: image in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:43:23 America/Bogota] PHP Notice:  Undefined index: image-rol in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:43:24 America/Bogota] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:43:24 America/Bogota] PHP Notice:  Undefined index: image-rol in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 87
+[26-Jan-2021 21:44:43 America/Bogota] PHP Notice:  Undefined index: image-rol in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:44:43 America/Bogota] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:44:43 America/Bogota] PHP Notice:  Undefined index: image in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 87
+[26-Jan-2021 21:45:09 America/Bogota] PHP Notice:  Undefined index: image-rol in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:45:09 America/Bogota] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 84
+[26-Jan-2021 21:45:09 America/Bogota] PHP Notice:  Undefined index: image in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 87
+[26-Jan-2021 21:45:49 America/Bogota] PHP Notice:  Undefined index: image in C:\xampp\htdocs\proyectos-juan\login-php\controllers\GestorController.php on line 87
+[26-Jan-2021 22:24:35 America/Bogota] abriendo la vista de acceso -> entrando en el controlador login
