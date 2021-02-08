@@ -6,3 +6,4 @@ function paginaActual() {
     $pagina = str_replace("/", "", $archivo);
     return $pagina;
 }
+

@@ -15,29 +15,49 @@ class AdminController extends SesionController {
 
     public function inicio()
     {
-        if(SesionController::isUser()){
+        if($this->isUser()){
             $this->view->render('usuarios/index');
         }else{
-            SesionController::redirect('/App/acceso');
+            $this->redirect('/App/acceso');
         }    
     }
     
     public function gestor()
     {
-        if(SesionController::isUser()){
-            $this->view->render('usuarios/ver');
+        if($this->isUser()){
+            $this->view->render('usuarios/gestor');
         }else{
-            SesionController::redirect('/App/acceso');
+            $this->redirect('/App/acceso');
         }
         
     }
 
     public function perfil()
     {
-        if(SesionController::isUser()){
+        if($this->isUser()){
             $this->view->render('usuarios/perfil');
         }else{
-            SesionController::redirect('/App/acceso'); 
+            $this->redirect('/App/acceso'); 
+        }
+        
+    }
+
+    public function creacionproductos()
+    {
+        if($this->isUser()){
+            $this->view->render('productos/creacion');
+        }else{
+            $this->redirect('/App/acceso'); 
+        }
+        
+    }
+
+    public function productos()
+    {
+        if($this->isUser()){
+            $this->view->render('productos/gestor');
+        }else{
+            $this->redirect('/App/acceso'); 
         }
         
     }

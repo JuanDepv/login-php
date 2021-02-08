@@ -20,8 +20,8 @@
             <div class="card-body">
                 <div class="usuario-perfil">
                     <div>
-                        <?php if (isset($_SESSION['i-user'])) : ?>
-                            <img src="" class="img-circle" />
+                        <?php if (isset($_SESSION['image'])) : ?>
+                            <img src="<?php echo $_SESSION['image']?>" class="img-circle" />
                         <?php else : ?>
                             <img src="<?php echo BASE_URL ?>/assets/uploads/29292.jpg" class="img-circle" />
                         <?php endif; ?>
@@ -63,6 +63,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                 </div>
+
+                                <input type="hidden" name="id_k" id="id_k" value="<?php echo isset($_SESSION['id_k']) ?  $_SESSION['id_k'] : ''; ?>" />
+
                                 <input type="text" name="usuario" id="usuario" class="form-control" placeholder="usuario" value="<?php echo isset($_SESSION['usuario']) ?  $_SESSION['usuario'] : ''; ?>" disabled="true" />
 
                             </div>

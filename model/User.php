@@ -10,11 +10,10 @@ class User extends Model
   private $email;
   private $password;
   private $id;
-  private $con = null;
 
   public function __construct()
   {
-    $this->con = new DataBase();
+    parent::__construct();
   }
 
   function getUsername()
@@ -200,7 +199,7 @@ class User extends Model
 
         $password_hash = $this->hashPassword($this->getPassword());
         //realizamos la consulta el usuario
-        $sql = "INSERT INTO`usuario` (username, email, password, rol_id, registro) 
+        $sql = "INSERT INTO `usuario` (username, email, password, rol_id, registro) 
                 VALUES('{$this->getusername()}', '{$this->getEmail()}', '$password_hash', 2, CURDATE())";
 
         $stmt = $this->con->getConnection()->prepare($sql);

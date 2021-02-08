@@ -11,7 +11,11 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="<?php echo BASE_URL?>/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <?php if(isset($_SESSION['image'])): ?>
+                        <img src="<?php echo $_SESSION['image']; ?>" class="img-circle elevation-2" alt="User Image">
+                    <?php else: ?>
+                        <img src="<?php echo BASE_URL?>/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <?php endif; ?>
                 </div>
                 <div class="info">
                     <a href="<?php echo BASE_URL?>/Admin/perfil" class="d-block" id="usuario"><?php echo $_SESSION['email']; ?></a>
@@ -276,7 +280,7 @@
                     <!-- Registro de usuarios -->
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-user"></i>
+                            <i class="nav-icon fab fa-canadian-maple-leaf"></i>
                             <p>
                                 Registro
                                 <i class="fas fa-angle-left right"></i>
@@ -302,7 +306,7 @@
                     <!-- PRODUCTOS --> 
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-candy-cane"></i>
+                            <i class="nav-icon fab fa-canadian-maple-leaf"></i>
                             <p>
                                 Productos
                                 <i class="fas fa-angle-left right"></i>
@@ -310,13 +314,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="pages/examples/invoice.html" class="nav-link">
+                                <a href="<?php echo BASE_URL; ?>/Admin/creacionproductos" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Crear Productos</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/examples/invoice.html" class="nav-link">
+                                <a href="<?php echo BASE_URL; ?>/Admin/productos" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Gestor Productos</p>
                                 </a>
@@ -324,10 +328,35 @@
                         </ul>
                     </li>
 
-                    <!-- --> 
+                    <!-- CATEGORIAS --> 
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-book"></i>
+                            <i class="nav-icon fab fa-canadian-maple-leaf"></i>
+                            <p>
+                                Categorias
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="pages/examples/invoice.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Crear Categoria</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/examples/invoice.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Gestor Categorias</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- PAGOS --> 
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fab fa-canadian-maple-leaf"></i>
                             <p>
                                 Pagos
                                 <i class="fas fa-angle-left right"></i>
@@ -337,49 +366,13 @@
                             <li class="nav-item">
                                 <a href="pages/examples/invoice.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Invoice</p>
+                                    <p>Gestor de pagos</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/examples/profile.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Profile</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/e-commerce.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>E-commerce</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/projects.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Projects</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/project-add.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Project Add</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/project-edit.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Project Edit</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/project-detail.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Project Detail</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/contacts.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Contacts</p>
+                                    <p>Pendientes</p>
                                 </a>
                             </li>
                         </ul>

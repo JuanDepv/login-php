@@ -1,8 +1,10 @@
 <?php
 
-require_once 'model/User.php';
+if(!isset($_SESSION)){
+    session_start();
+}
 
-class UserController extends SesionController {
+class StoreViewController extends SesionController {
 
     protected $view;
 
@@ -11,12 +13,14 @@ class UserController extends SesionController {
         $this->view = new View();
     }
 
-    public function dashboard() {
-
+    public function inicio()
+    {
         if($this->isUser()){
-            $this->view->render('usuarios/editar');
+            $this->view->render('store/index');
         }else{
             $this->redirect('/App/acceso');
-        }
+        }    
     }
+
+
 }

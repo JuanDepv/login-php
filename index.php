@@ -31,7 +31,6 @@ require_once 'libs/PHPMailer-master/src/POP3.php';
 require_once 'libs/PHPMailer-master/src/SMTP.php';
 
 $inicio = new Controller();
-$inicio->App();
 
 
 

@@ -13,20 +13,69 @@ $("#mostrarUsuarios").on("click", function (event) {
     event.preventDefault();
     $(".usuario").show();
     listarUsuarios(user_id, estado);
-    console.log("consultando..." + user_id + " " + estado);
 })
 
-// $("#actualizarusuario").on("submit", function (event) {
-    
-// })
+$("#actualizarusuario").on("submit", function (event) {
+    event.preventDefault()
+    const id_usuario = $('#id_u').val()
+    const username = $("#name").val()
+    const email = $("#email").val()
+    const rol = $("#rolnuevo").val()
+
+    if(username.trim() === '' || email.trim() === '' || rol.trim() === '') {
+        $.alert({
+            title: 'Campos',
+            content: 'Hay campos vacios'
+        });
+        // toastr.danger('los campos estan vacios')
+        return false
+    } else {
+        $.confirm({
+            title: 'Actualizar!',
+            content: 'desea actualizar el usuario!',
+            type: 'dark',
+            buttons: {
+                confirm: function () {
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        url: `${URL}/Gestor/updateUser`,
+                        data: {
+                            id_usuario: id_usuario,
+                            username: username,
+                            email: email,
+                            rol: rol,
+                        },
+                        success: function(response) {
+                            console.log(response);
+                            if(response.success) {
+                                $("#modal-editar").modal("hide")
+                                listarUsuarios()
+                            }
+                        }
+                    })
+
+                    $.alert({
+                        title: 'Usuario',
+                        content: 'Usuario actaulizado'
+                    });
+                }, 
+                cancel: function() {
+
+                }
+            }
+        });
+    }
+
+})
 
 $("#subirimagen").on("submit", function (event) {
     event.preventDefault()
     const image = $("#image-rol").get(0).files[0]
+    const id_usuario = $('#id_k').val()
     const data = new FormData()
     data.append("profile", image)
-    console.log(image);
-
+    data.append("id_usuario", id_usuario)
     $.ajax({
         url:`${URL}/Gestor/uploadImageProfile`,
         type: 'POST',
@@ -34,11 +83,14 @@ $("#subirimagen").on("submit", function (event) {
         processData: false,
         contentType: false,
         cache: false,
-        beforeSend: function () {
-            console.log("esperando");
-        },
         success: function (response) {
-            console.log(response);
+            if(response.success) {
+                $.alert({
+                    title: 'Perfil',
+                    content: 'Imagen actualizada, cierra sesion e ingresa nuevamente',
+                    type: 'dark'
+                });
+            }
         }
 
     })
@@ -69,6 +121,30 @@ function listarUsuarios(id, estado) {
                     estado: estado,
                 },
                 dataSrc: ""
+            },
+            language: {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Límite de usuarios por página: _MENU_",
+                "sZeroRecords": "No se encontraron resultados.",
+                "sEmptyTable": "Ningún usuario disponible en esta tabla.",
+                "sInfo": "Mostrando del _START_ al _END_ de un total de _TOTAL_",
+                "sInfoEmpty": "Mostrando del 0 al 0 de un total de 0",
+                "sInfoFiltered": "(Filtrado de un total de _MAX_).",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente.",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente."
+                }
             },
             columns: [
                 { data: "id_usuario" },
@@ -119,45 +195,6 @@ function listarUsuarios(id, estado) {
         dtable.destroy();
         listarUsuarios(id, estado);
     }
-
-    /* $.ajax({
-        url: '/proyectos-juan/proyecto-uno/Gestor/getUsuarios',
-        data: {
-            username: username,
-            estado: estado
-        },
-        type: 'POST',
-        contentType: "application/json",
-        dataType: 'json',
-        success: function(response) {
-            $('#ud_user').DataTable({})
-
-            $(response).each(function(i, usuario){
-
-                $('#ud_user').DataTable().row.add([
-                    i,
-                    usuario.username,
-                    usuario.email,
-                    usuario.rol_usuario,
-                    usuario.estado === "1" ? `<span class="euser"><i class="far fa-check-circle"></i><span>`: `<span class="eusero"><i class="far fa-times-circle"></i><span>`,
-                    `<div class="td-space">
-                        <button type="button" class="btn btn-info"                   data-toggle="modal"
-                        data-target="#" data-iduser="${usuario.id_usuario}">
-                            <span class="glyphicon glyphicon-eye-open">
-                                Ver
-                            </span>
-                        </button>
-                        <button type="button" class="btn btn-warning" data-toggle="modal"
-                        data-target="#" data-id_user="${usuario.id_usuario}">
-                            <span class="glyphicon glyphicon-edit">
-                                Editar
-                            </span>
-                        </button>
-                    </div>`
-                ]).draw();
-            });
-        }
-    }); */
 }
 
 function roles() {
@@ -181,35 +218,50 @@ function ver(id) {
             id: id
         },
         success: function(response) {
+            const id = $('#id_u').val(response.id_usuario)
             const username = $("#name").val(response.username)
             const email = $("#email").val(response.email)
             const rol = $("#rol").val(response.rol_usuario)
-            const estado =  $("#estado")
+            const estado =  $("#estadou").val(response.estado)
+            const fcreacion = $("#fcreacion").val(response.registro)
 
         }
     })
 }
 
-function actualizar() {
-    
-}
-
 function estado(id, estado) {
-    if(confirm("Desea cambiar el estado")) {
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: `${URL}/Gestor/updataState`,
-            data: {
-                id: id,
-                estado: estado
-            },
-            success: function(response) {
-                if(response.success) {
-                    listarUsuarios()
-                }
+
+    $.confirm({
+        title: 'Estado',
+        content: 'Desea Cambiar el estado!',
+        type: 'dark',
+        buttons: {
+            confirm: function () {
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: `${URL}/Gestor/updataState`,
+                    data: {
+                        id: id,
+                        estado: estado
+                    },
+                    success: function(response) {
+                        if(response.success) {
+                            listarUsuarios()
+                        }
+                    }
+                })
+
+                $.alert({
+                    title: 'Estado',
+                    content: 'Estado Actualizado'
+                });
+            }, 
+            cancel: function() {
+                
             }
-        })
-    }
+        }
+    });
+
 
 }

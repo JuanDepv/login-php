@@ -60,9 +60,11 @@ class AppController extends SesionController
 
                 if ($response_login['status']) {
                     
+                    $_SESSION['id_k'] = $response_login["data"]["id_usuario"];
                     $_SESSION['email'] = $response_login["data"]["email"];
                     $_SESSION['usuario'] = $response_login["data"]["username"];
                     $_SESSION['rol'] = $response_login["data"]["rol_usuario"];
+                    $_SESSION['image'] = $response_login["data"]["imagen_url"];
                 }
 
             } catch(Exception $e) {

@@ -2,6 +2,11 @@
 
 class Controller {
 
+    public function __construct()
+    {
+        $this->App();
+    }
+
     public function App() {
         
         if (isset($_GET['controller'])) {
@@ -29,7 +34,7 @@ class Controller {
             }
             
         } else {
-            echo "al intentar abrir el  controlador";
+            echo "error al intentar abrir el  controlador";
         }
     }
     

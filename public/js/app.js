@@ -163,7 +163,7 @@ $('#datos').change(function (event) {
 // funciones
 function recordarDatosLogin() {
     const storage = localStorage
-    if (guardarDatos.is(':checked')){
+    if (guardarDatos.is(':checked')) {
         const data = {
             nombre: $("#name").val(),
             password: $("#pass").val(),
@@ -179,7 +179,7 @@ function recordarDatosLogin() {
 }
 
 function ObtenerDatosLocalStorage() {
-    const storage = localStorage;
+    const storage = localStorage
     const nombre = $("#name")
     const password = $("#pass")
     const checkeds = $("#datos")

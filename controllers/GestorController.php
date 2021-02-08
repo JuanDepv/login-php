@@ -1,6 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
 
 require_once 'model/UserGestor.php';
 
@@ -59,6 +58,40 @@ class GestorController extends SesionController {
         echo json_encode($user);
     }
 
+    public function updateUser() 
+    {
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $data = array(
+                'id_usuario' => $id_usuario = trim($_POST['id_usuario']),
+                'username' => $username = trim($_POST['username']),
+                'email' => $email = trim($_POST['email']),
+                'rol' => $rol = trim($_POST['rol'])
+            );
+
+            $gestor = new UserGestor();
+            $response = $gestor->updateUser($data);
+
+            if($response['success']) {
+                echo json_encode(array(
+                    'success' => true,
+                    'msg' => 'correcto',
+                ));
+            } else {
+                echo json_encode(array(
+                    'success' => false,
+                    'msg' => 'error',
+                ));
+            }
+
+        } else {
+            return array(
+                'error' => "error en el metodo de envio"
+            );
+        }
+    }
+
     public function updataState() 
     {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -82,26 +115,67 @@ class GestorController extends SesionController {
 
     public function uploadImageProfile() 
     {   
-        $path = "assets/";
-        $type[] = ['image/gif', 'image/jpeg', 'image/jpg', 'image/png'];
+        $path = "assets/uploads/";
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        for ($i=0; $i < count($type); $i++) { 
-            if($_FILES['profile']['type'] === $type[$i]) {
-                return true;
+            if (isset($_FILES)) {
+                $nombre_archivo = $_FILES['profile']['name'];
+                $tipo = $_FILES['profile']['type'];
+                $tmp_name = $_FILES['profile']['tmp_name'];
+                $error =  $_FILES['profile']['error'];
+                $size = $_FILES['profile']['size'];
+
+                if ($this->validateFormatImage($tipo)) {
+
+                    if ($error === 0) {
+
+                        if ($this->validateSize($size)) {
+
+                            //separar la imagen  [nombre => 0] . ['jpg' => 1]
+                            $nombreext = explode('.', $nombre_archivo);
+                            // estraer el jpg
+                            $nombreacext = strtolower(end($nombreext));
+
+                            // cambio de el nombre
+                            $nombre_guardar = uniqid('', true) . "." . $nombreacext;
+
+                            $nombre_imagen = BASE_URL .'/'. $path . $nombre_guardar;
+
+                            move_uploaded_file($tmp_name, $path . $nombre_guardar);
+                        } else {
+                            echo json_encode(array(
+                                'success' => false,
+                                'msg' => 'error en el tamaño',
+                            ));
+                        }
+                    } else {
+                        echo json_encode(array(
+                            'success' => false,
+                            'msg' => 'error al subir el archivo',
+                        ));
+                    }
+                } else {
+                    echo json_encode(array(
+                        'success' => false,
+                        'msg' => 'error en tipo',
+                    ));
+                }
             }
 
-            return false;
+            extract($_REQUEST);
+            $id_user = $id_usuario;
 
-            print_r($_FILES);
+            $upload = array(
+                'id_usuario' => $id_user,
+                'imagen_url' => $nombre_imagen
+            );
+
+
+            $user = new UserGestor();
+            $data = $user->uploadNameImage($upload);
+            echo json_encode($data);
         }
-
-        // $nombreImage = $_FILES['image-rol']['name'];
-        
-
-        // if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
-        // }
     } 
 
 }

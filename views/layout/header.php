@@ -38,18 +38,44 @@
                         </div>
                     </li>-->
                 </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active acceso" href="<?php echo BASE_URL?>/App/acceso">
-                            <i class="fas fa-sign-in-alt"></i> Login
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active acceso" href="<?php echo BASE_URL?>/App/registro">
-                            <i class="fas fa-users"></i> Registro
-                        </a>
-                    </li>
-                </ul>
+
+                <?php if(!isset($_SESSION['email'])): ?>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active acceso" href="<?php echo BASE_URL?>/App/acceso">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active acceso" href="<?php echo BASE_URL?>/App/registro">
+                                <i class="fas fa-users"></i> Registro
+                            </a>
+                        </li>
+                    </ul>
+                
+                <?php else: ?>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active acceso" href="<?php echo BASE_URL?>/App/acceso">
+                                <i class="fas fa-sign-in-alt"></i> Carrito
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active acceso" href="<?php echo BASE_URL?>/App/registro">
+                                <i class="fas fa-users"></i> Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active acceso" href="<?php echo BASE_URL; ?>/App/logout">
+                                <i class="fas fa-power-off"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+
+                <?php endif; ?>
+
             </div>
         </nav>
     </header>
