@@ -16,7 +16,7 @@ mydb.sql
 
 ## Paso 2
 
-Después de la creacion de la db, ir a la carpeta **config/DataBase.php** y modificar la conexion
+Después de la creacion de la db, ir a la carpeta/archivo **config/DataBase.php** y modificar la conexion
 
 * [$host] - modicicar el host de conexión
 * [$db_name] - modificar nombre de la base de datos
@@ -38,4 +38,12 @@ Lo siguiente es ir la la carpeta/archivo **public/js/app.js** y **public/js/usua
 
 ```
   const URL = "/proyectos-juan/login-php" - URL_BASE_NUEVA
+```
+
+## Ejecutar en un servidor como: ⚙️
+
+_xampp, wampp, mamp o local con el servidor de php_
+
+```
+  php -S localhost:8080
 ```
